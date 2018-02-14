@@ -1,7 +1,7 @@
 import tensorflow as tf
 from data.read_data import Data
 from tensorflow.python.layers.core import Dense
-
+#why do you need ammunition
 # TO DO
 # beam search
 # bidirectional cell
@@ -103,7 +103,7 @@ class Seq2Seq:
         return decoder_outputs
 
     def _test(self, session, enc_input, enc_len, dec_input, dec_output, dec_len):
-        prediction_check = tf.equal(self.outputs, dec_output)
+        prediction_check = tf.equal(self.outputs, self.decoder_output)
         accuracy = tf.reduce_mean(tf.cast(prediction_check, tf.float32))
 
         return session.run([self.outputs, accuracy], feed_dict={self.encoder_input:enc_input,
